@@ -1,0 +1,95 @@
+@import '~lesshat/build/lesshat.less';
+
+.ept-question-group{
+	&:hover{
+		.ept-toolbar{
+			visibility: visible;
+		}
+	}
+	.ept-toolbar{
+		visibility: hidden;
+	}
+}
+
+@bgColor:white;
+@actionColor:darken(@bgColor, 30%);
+.ept-box.ept-question{
+	font-size:14px;
+	background-color: @bgColor;
+	.header{
+		border:none;
+		line-height: initial;
+	}
+
+	.title{
+		font-size: 16px;
+	}
+	.actions{
+		float:none;
+		.action-item{
+			a{
+				color: @actionColor;
+				font-size: 20px;
+			}
+		}
+	}
+	.ept-group{
+		padding-left: 10px; 
+		.ept-item{
+			background-color: inherit;
+			box-shadow: none;
+			padding: 0;
+		}
+	}
+}
+
+
+.ept-question.ept-question-make{
+	.actions{
+		display: none;
+		float: right;
+	}
+	&:hover{
+		background-color: darken(@bgColor, 5%);
+		.actions{
+			display: inline-block;
+			.action-item{
+				a{
+					cursor: pointer;
+					&:hover{
+						color:darken(@actionColor, 10%);
+					}
+				}
+			}
+		}
+	}
+	.ept-group{
+		.ept-item.add-more{
+			color:@actionColor;
+			padding-left: 30px;
+			&:hover{
+				color:darken(@actionColor, 10%);
+			}
+		}
+	}
+}
+
+.ept-box.ept-question.ept-short-answer{
+	input.ept-blank-space{
+		width:50px;
+	}
+}
+
+.ept-free-text{
+	textarea.ept-blank-space{
+		width:80%;
+		margin:0 auto;
+	}
+}
+
+
+
+
+.ept-test-component{
+	padding: 15px;
+}

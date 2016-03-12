@@ -1,5 +1,12 @@
-This is a demo project for an article in [angular-tips](http://angular-tips.com).
+#frontend-core
 
-Please go [here](https://github.com/Foxandxss/angular-webpack-workflow) to get the up to date workflow.
+This is the core module for renison EPT project. 
+Many common directives, services, constants are in this module.
 
-Please if you have any issue with the workflow, open an issue there.
+###Install
+
+`npm install`
+
+###TODO
+
+More unit test coverage

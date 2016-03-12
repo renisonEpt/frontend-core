@@ -1,0 +1,63 @@
+<ept-box title="question.content" tag="questionNum+'. '" title-editable="isAdmin?'text':''" on-update-title="updateContent(title)" class="cssClass" actions="actions">
+	<div ng-switch="question.type">
+	<!-- Note this will match question.type to literal string 'MULTIPLE_CHOICE' -->
+		<div ng-switch-when="MULTIPLE_CHOICE">
+			<ept-group>
+				<ept-item ng-repeat="answer in question.answers track by $index" >
+					<div ng-if="!isAdmin">
+						<input type="radio" ng-value="answer.content" ng-model="question.response" ng-change="onResChangedCallback()">
+						{{answer.content}}
+					</div>
+					<div ng-if="isAdmin">
+						<input type="radio" ng-checked="answer.isCorrect" ng-click="onCorrectAnswerChanged($index)">
+						<span editable-text="answer.content">{{answer.content || "empty"}}</span>
+					</div>
+				</ept-item>
+				<ept-item ng-if="isAdmin" class="'add-more'" >
+					<button ng-click="newAnswer()" class="btn btn-icon btn-sm"> <i class="fa fa-plus"></i> ADD</button>
+				</ept-item>
+			</ept-group>
+
+		</div>
+
+		<div ng-switch-when="TRUE_FALSE">
+			<ept-group>
+				<ept-item ng-repeat="answer in question.answers track by $index">
+					<div ng-if="!isAdmin">
+						<input type="radio" ng-value="answer.content" ng-model="question.response" ng-change="onResChangedCallback()">
+						{{answer.content}}
+					</div>
+					<div ng-if="isAdmin">
+						<input type="radio" ng-checked="answer.isCorrect" ng-click="onCorrectAnswerChanged($index)">
+						{{answer.content}} 
+					</div>
+				</ept-item>
+			</ept-group>
+		</div>
+
+		<div ng-switch-when="SHORT_ANSWER">
+			<ept-group>
+				<ept-item ng-if="!isAdmin">
+					<input type="text" class="ept-blank-space" ng-model="question.response" ng-change="onResChangedCallback()">
+				</ept-item>
+				<ept-item ng-if="isAdmin" ng-repeat="answer in question.answers track by $index">
+					<input type="text" class="ept-blank-space" ng-model="answer.content">
+				</ept-item>
+				<ept-item ng-if="isAdmin" class="'add-more'" ng-click="newAnswer()">
+					<button class="btn btn-icon btn-sm"> <i class="fa fa-plus"></i> ADD</button>
+				</ept-item>
+			</ept-group>
+		</div>
+
+		<div ng-switch-when="FREE_TEXT">
+			<ept-group>
+				<ept-item>
+					<textarea class="ept-blank-space" ng-disabled="isAdmin" ng-model="question.response" ng-change="onResChangedCallback()" cols="50" rows="4"></textarea>
+				</ept-item>
+			</ept-group>
+		</div>
+		<div ng-switch-default>
+			unsupported question type
+		</div>
+	</div>
+</ept-box>

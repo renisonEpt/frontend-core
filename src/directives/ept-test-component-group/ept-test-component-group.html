@@ -1,0 +1,11 @@
+<div class="ept-test-component-group">
+	<!-- For insertion in the beginning only -->
+	<ept-toolbar context="-1" actions="toolbarActions"></ept-toolbar>
+	<div ng-repeat="component in components">
+		<ept-test-component component="component" component-num="$index+1" 
+		is-admin="true" on-component-deleted="onComponentDelete(component)"
+		on-component-modified="onComponentModifiedCallback(component)"
+		></ept-test-component>
+		<ept-toolbar context="$index" actions="toolbarActions"></ept-toolbar>
+	</div>
+</div>

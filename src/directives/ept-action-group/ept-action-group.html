@@ -1,0 +1,7 @@
+<ul class="actions" ng-class="cssClass">
+	<li class="action-item">
+		<a ng-repeat="action in actions" ng-class="action.class">
+			<i ng-class="action.iconClass" ng-click="action.onAction()"></i>{{action.text}}
+		</a>
+	</li>
+</ul>

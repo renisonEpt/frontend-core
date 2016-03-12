@@ -5,8 +5,8 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer-core');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-module.exports = function makeWebpackConfig (options) {
+var path = require('path');
+module.exports = function makeWebpackConfig(options) {
   /**
    * Environment type
    * BUILD is for generating minified builds
@@ -31,9 +31,10 @@ module.exports = function makeWebpackConfig (options) {
   if (TEST) {
     config.entry = {}
   } else {
-    config.entry = {
-      app: './src/app.js'
-    }
+    config.entry = [
+      'font-awesome-webpack',
+      './src/app.js'
+    ]
   }
 
   /**
@@ -95,12 +96,23 @@ module.exports = function makeWebpackConfig (options) {
       loader: 'babel?optional=runtime',
       exclude: /node_modules/
     }, {
+      //less loader
+      test: /\.less$/,
+      loader: "style!css!less"
+    }, {
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "url-loader?limit=10000&mimetype=application/font-woff"
+    }, {
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: "file-loader"
+    }, {
       // ASSET LOADER
       // Reference: https://github.com/webpack/file-loader
       // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
       // Rename the file using the asset hash
       // Pass along the updated reference to your code
       // You can add here any file extension you want to get copied to your output
+      // Han: font files are overriden at the top, because it did not work with font-awesome
       test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
       loader: 'file'
     }, {
@@ -163,6 +175,21 @@ module.exports = function makeWebpackConfig (options) {
       browsers: ['last 2 version']
     })
   ];
+  // suppoting bower components https://webpack.github.io/docs/usage-with-bower.html
+  config.resolve = {
+    // root: [path.join(__dirname, "bower_components")]
+    // attempt to avoid relative path when importing, but failed
+    root: [
+      path.resolve(__dirname, './src/'),
+      path.resolve(__dirname, './src/directives'),
+      path.resolve(__dirname, './src/services'),
+      path.resolve(__dirname, './src/lib'),
+      path.resolve(__dirname, './src/features'),
+      path.resolve(__dirname, './src/constants'),
+      path.resolve(__dirname, 'node_modules/')
+    ],
+    extensions: ['', '.js', '.less', '.html']
+  };
 
   /**
    * Plugins
@@ -176,6 +203,11 @@ module.exports = function makeWebpackConfig (options) {
     new ExtractTextPlugin('[name].[hash].css', {
       disable: !BUILD || TEST
     })
+    // for support bower only
+    // ,
+    // new webpack.ResolverPlugin(
+    //   new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin(".bower.json", ["main"])
+    // )
   ];
 
   // Skip rendering index.html in test mode
@@ -186,7 +218,13 @@ module.exports = function makeWebpackConfig (options) {
       new HtmlWebpackPlugin({
         template: './src/index.html',
         inject: 'body',
-        minify: BUILD
+        minify: {
+          // see https://github.com/kangax/html-minifier#options-quick-reference
+          minifyJS: BUILD,
+          minifyCSS: BUILD,
+          removeCommentsFromCDATA: BUILD,
+          removeComments: BUILD
+        }
       })
     )
   }

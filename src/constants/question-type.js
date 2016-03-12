@@ -1,0 +1,7 @@
+var QuestionType = {
+	MUTIPLE_CHOICE:"MUTIPLE_CHOICE",
+	SHORT_ANSWER:"SHORT_ANSWER",
+	TRUE_FALSE:"TRUE_FALSE",
+	FREE_TEXT:"FREE_TEXT"
+};
+export default QuestionType;
