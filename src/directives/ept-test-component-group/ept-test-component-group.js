@@ -1,6 +1,6 @@
 import angular from "angular";
-import QuestionType from "question-type.js";
-import ComponentType from "component-type.js";
+import QuestionType from "../../constants/question-type.js";
+import ComponentType from "../../constants/component-type.js";
 import eptTestComponent from "../ept-test-component/ept-test-component.js";
 /*
 	@components:component[]

@@ -1,7 +1,7 @@
-import 'ept-box/ept-box.less';
+import './ept-box.less';
 import angular from "angular";
-import xeditable from "xeditable/xeditable.js";
-import editableTextAngular from "editable-text-angular/editable-text-angular.js";
+import xeditable from "../../lib/xeditable/xeditable.js";
+import editableTextAngular from "../editable-text-angular/editable-text-angular.js";
 /*
 	@actions:optional [action ...]
 		action{ 

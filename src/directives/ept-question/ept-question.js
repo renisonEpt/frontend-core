@@ -1,7 +1,7 @@
 import angular from "angular";
-import eptBox from "ept-box/ept-box.js";
+import eptBox from "../ept-box/ept-box.js";
 import "./ept-question.less";
-import QuestionType from "question-type.js";
+import QuestionType from "../../constants/question-type.js";
 import _ from "lodash";
 /*
 	interface question{

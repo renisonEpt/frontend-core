@@ -176,20 +176,15 @@ module.exports = function makeWebpackConfig(options) {
     })
   ];
   // suppoting bower components https://webpack.github.io/docs/usage-with-bower.html
-  config.resolve = {
-    // root: [path.join(__dirname, "bower_components")]
-    // attempt to avoid relative path when importing, but failed
-    root: [
-      path.resolve(__dirname, './src/'),
-      path.resolve(__dirname, './src/directives'),
-      path.resolve(__dirname, './src/services'),
-      path.resolve(__dirname, './src/lib'),
-      path.resolve(__dirname, './src/features'),
-      path.resolve(__dirname, './src/constants'),
-      path.resolve(__dirname, 'node_modules/')
-    ],
-    extensions: ['', '.js', '.less', '.html']
-  };
+  // config.resolve = {
+  //   // root: [path.join(__dirname, "bower_components")]
+  //   // attempt to avoid relative path when importing, but failed
+  //   root: [
+  //     path.resolve(__dirname, './src/'),
+  //     path.resolve(__dirname, 'node_modules/')
+  //   ],
+  //   extensions: ['', '.js', '.less', '.html']
+  // };
 
   /**
    * Plugins

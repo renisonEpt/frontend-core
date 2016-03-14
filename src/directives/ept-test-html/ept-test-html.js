@@ -1,5 +1,5 @@
 import "./ept-test-html.less";
-import editableTextAngular from "editable-text-angular/editable-text-angular.js";
+import editableTextAngular from "../editable-text-angular/editable-text-angular.js";
 /*
 	content:string any html content
 	editable: whether this component is editable

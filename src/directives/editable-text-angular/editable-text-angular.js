@@ -1,7 +1,7 @@
 import angular from "angular";
-import "lib/textAngularLib";// TODO 
+import textAngular from "../../lib/textAngularLib";// TODO 
 // import "textAngular/dist/textAngular-sanitize.js";// TODO 
-var textAngular = "textAngular";
+
 export default angular.module("ept.common.directives.editableTextAngular",[textAngular])
 
 .config(['$provide', function($provide){

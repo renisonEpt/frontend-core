@@ -1,7 +1,7 @@
 import "./ept-category.less";
 import angular from "angular";
-import xeditable from "xeditable/xeditable.js";
-import eptActionGroup from "ept-action-group/ept-action-group.js";
+import xeditable from "../../lib/xeditable/xeditable.js";
+import eptActionGroup from "../ept-action-group/ept-action-group.js";
 
 /*
 	@category{

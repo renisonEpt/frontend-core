@@ -6,6 +6,7 @@
 })();
 require('rangy/lib/rangy-selectionsaverestore');
 require('textangular/dist/textAngular-sanitize');
-require('textAngular/dist/textAngularSetup');
-require('textAngular/dist/textAngular');
-import "textAngular/dist/textAngular.css";
+require('textangular/dist/textAngularSetup');
+require('textangular/dist/textAngular');
+import "textangular/dist/textAngular.css";
+export default "textAngular";

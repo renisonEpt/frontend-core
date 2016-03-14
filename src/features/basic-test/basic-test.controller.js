@@ -1,5 +1,5 @@
-import QuestionType from "question-type.js";
-import ComponentType from "component-type.js";
+import QuestionType from "../../constants/question-type.js";
+import ComponentType from "../../constants/component-type.js";
 
 export default function BasicTestController($scope,$timeout){
 	$scope.title="Hello";

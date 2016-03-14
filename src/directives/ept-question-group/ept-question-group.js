@@ -1,6 +1,6 @@
 import angular from "angular";
-import QuestionType from "question-type.js";
-import eptQuestion from "ept-question/ept-question.js";
+import QuestionType from "../../constants/question-type.js";
+import eptQuestion from "../ept-question/ept-question.js";
 //import QuestionType from ""; //TODO
 /*
 	@questions:question[]
