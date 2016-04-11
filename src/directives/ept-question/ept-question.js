@@ -28,10 +28,10 @@ export default angular.module("ept.common.directives.eptQuestion",[]).directive(
 		var DEFAULT_CLASS = " ept-question"; //needs a space in front for css
 		//implements action interface of ept-box
 		var NOT_SAVED = {
-			"iconClass": "glyphicon glyphicon-floppy-disk not-saved"
+			"iconClass": "fa fa-floppy-o not-saved"
 		};
 		var SAVED = {
-			"iconClass": "glyphicon glyphicon-floppy-saved saved"
+			"iconClass": "fa fa-floppy-o saved"
 		};
 		var DELETE = {
 			"iconClass": "fa fa-trash"
