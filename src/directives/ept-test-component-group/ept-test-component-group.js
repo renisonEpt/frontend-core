@@ -21,12 +21,12 @@ export default angular.module("ept.common.directives.eptTestComponentGroup",[ept
 		}
 	}
 
-	function makeNewComponent(type){
-		switch(type){
+	function makeNewComponent(componentType){
+		switch(componentType){
 			case QuestionType.MULTIPLE_CHOICE:
 				return {
 					content:"New multiple choice question here...",
-					type:type,
+					componentType:componentType,
 					answers:[{
 						content:"First new answer, I am selected thus the correct answer",
 						isCorrect:true
@@ -44,7 +44,7 @@ export default angular.module("ept.common.directives.eptTestComponentGroup",[ept
 			case QuestionType.TRUE_FALSE:
 				return {
 					content:"New true false question here... true is by default correct",
-					type:type,
+					componentType:componentType,
 					answers:[{
 						content:"true",
 						isCorrect:true
@@ -56,7 +56,7 @@ export default angular.module("ept.common.directives.eptTestComponentGroup",[ept
 			case QuestionType.SHORT_ANSWER:
 				return {
 					content:"New short answer here ... ",
-					type:type,
+					componentType:componentType,
 					answers:[{
 						content:"First new answer here ...",
 						isCorrect:true
@@ -65,12 +65,12 @@ export default angular.module("ept.common.directives.eptTestComponentGroup",[ept
 			case QuestionType.FREE_TEXT:
 				return {
 					content:"New free text here ... no answer needed",
-					type:type
+					componentType:componentType
 				};
 			case ComponentType.COMP_HTML:
 				return{
 					content:"<h1>You can edit me! in WYSIWYG style!</h1>",
-					type:type
+					componentType:componentType
 				};
 			default:
 				throw "cannot make unsupported question type " + type;

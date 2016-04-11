@@ -1,5 +1,5 @@
 var ComponentType = {
-	COMP_HTML:"COMP_HTML"
+	COMP_HTML:"HTML"
 };
 
 export default ComponentType;

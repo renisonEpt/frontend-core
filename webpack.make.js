@@ -32,7 +32,7 @@ module.exports = function makeWebpackConfig(options) {
     config.entry = {}
   } else {
     config.entry = [
-      'font-awesome-webpack',
+      'font-awesome-webpack',// TODO this would not work if imported
       './src/app.js'
     ]
   }

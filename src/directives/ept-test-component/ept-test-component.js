@@ -1,4 +1,5 @@
 import angular from "angular";
+import ComponentType from "../../constants/component-type"
 import "./ept-test-component.less";
 /*
 	Union between `ept-question` and `ept-test-html`
@@ -29,7 +30,7 @@ export default angular.module("ept.common.directives.'eptTestComponent'",[]).dir
 		},
 		link: function postLink($scope, iElement, iAttrs) {
 			$scope.isHtml = function(){
-				return $scope.component.type === "html";
+				return $scope.component.componentType === ComponentType.COMP_HTML;
 			};
 
 			$scope.onComponentDeletedCallback = function(){

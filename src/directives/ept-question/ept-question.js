@@ -92,7 +92,7 @@ export default angular.module("ept.common.directives.eptQuestion",[]).directive(
 						}
 					}
 					//initialize some default answers if there are none
-					switch ($scope.question.type) {
+					switch ($scope.question.componentType) {
 						case QuestionType.MULTIPLE_CHOICE:
 							makeDefaultAnswers(["new choice"]);
 							break;
@@ -117,7 +117,7 @@ export default angular.module("ept.common.directives.eptQuestion",[]).directive(
 					// called when the correct answer gets changed
 					// only for multple choice and true false for now
 					$scope.onCorrectAnswerChanged = function(answerIndex) {
-						switch($scope.question.type){
+						switch($scope.question.componentType){
 							case QuestionType.MULTIPLE_CHOICE:
 							case QuestionType.TRUE_FALSE:
 								_.forEach($scope.question.answers, function(v, i) {

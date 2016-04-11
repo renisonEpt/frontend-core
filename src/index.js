@@ -6,4 +6,5 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './lib/xeditable/xeditable.css';
 import angular from 'angular';
 import directives from "./directives";
-export default angular.module('ept.common', [directives]).name;
+import services from "./services";
+export default angular.module('ept.common', [directives,services]).name;

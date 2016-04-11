@@ -1,5 +1,5 @@
 <ept-box title="question.content" tag="questionNum+'. '" title-editable="isAdmin?'text':''" on-update-title="updateContent(title)" class="cssClass" actions="actions">
-	<div ng-switch="question.type">
+	<div ng-switch="question.componentType">
 	<!-- Note this will match question.type to literal string 'MULTIPLE_CHOICE' -->
 		<div ng-switch-when="MULTIPLE_CHOICE">
 			<ept-group>
