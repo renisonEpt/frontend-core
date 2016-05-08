@@ -5,7 +5,7 @@
 			<ept-group>
 				<ept-item ng-repeat="answer in question.answers track by $index" >
 					<div ng-if="!isAdmin">
-						<input type="radio" ng-value="answer.content" ng-model="question.response" ng-change="onResChangedCallback()">
+						<input type="radio" ng-value="answer.content" ng-model="question.response[0].text" ng-change="onResChangedCallback()">
 						{{answer.content}}
 					</div>
 					<div ng-if="isAdmin">
@@ -24,7 +24,7 @@
 			<ept-group>
 				<ept-item ng-repeat="answer in question.answers track by $index">
 					<div ng-if="!isAdmin">
-						<input type="radio" ng-value="answer.content" ng-model="question.response" ng-change="onResChangedCallback()">
+						<input type="radio" ng-value="answer.content" ng-model="question.response[0].text" ng-change="onResChangedCallback()">
 						{{answer.content}}
 					</div>
 					<div ng-if="isAdmin">
@@ -38,7 +38,7 @@
 		<div ng-switch-when="SHORT_ANSWER">
 			<ept-group>
 				<ept-item ng-if="!isAdmin">
-					<input type="text" class="ept-blank-space" ng-model="question.response" ng-change="onResChangedCallback()">
+					<input type="text" class="ept-blank-space" ng-model="question.response[0].text" ng-change="onResChangedCallback()">
 				</ept-item>
 				<ept-item ng-if="isAdmin" ng-repeat="answer in question.answers track by $index">
 					<input type="text" class="ept-blank-space" ng-model="answer.content">
@@ -52,7 +52,7 @@
 		<div ng-switch-when="FREE_TEXT">
 			<ept-group>
 				<ept-item>
-					<textarea class="ept-blank-space" ng-disabled="isAdmin" ng-model="question.response" ng-change="onResChangedCallback()" cols="50" rows="4"></textarea>
+					<textarea class="ept-blank-space" ng-disabled="isAdmin" ng-model="question.response[0].text" ng-change="onResChangedCallback()" cols="50" rows="4"></textarea>
 				</ept-item>
 			</ept-group>
 		</div>

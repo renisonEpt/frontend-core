@@ -172,7 +172,9 @@ export default angular.module("ept.common.directives.eptQuestion",[]).directive(
 				
 				function studentInit() {
 					if (!question["response"]) {
-						question["resposne"] = ""; //initialize response key
+						question["response"] = [{
+							text:""
+						}]; //initialize response key
 					}
 
 					function onSaveChanged() {
