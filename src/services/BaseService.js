@@ -31,7 +31,7 @@ class BaseService {
     return this.request("POST",path,body);
   }
   get(path){
-    return this.request("GET",path);
+    return this.request("GET",path,null);
   }
   put(path,body){
     return this.request("PUT",path,body);
