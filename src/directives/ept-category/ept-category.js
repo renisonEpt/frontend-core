@@ -26,9 +26,19 @@ export default angular.module("ept.common.directives.ept-category",[xeditable,ep
 			cssClass: "=class",
 			onDeleted: '&',
 			actions: '=?',
-			components:"="
+			components:"=",
+			onChanged: '&'
 		},
-		controller: function($scope, $element, $attrs) {},
+		controller: function($scope, $element, $attrs) {
+			$scope.$watch('category',function(newval,oldval){
+				if(!angular.equals(newval,oldval)){
+					$scope.onChanged({
+						category: $scope.category
+					});
+				}
+			},true);
+		},
+		// why link?
 		link: function postLink($scope, iElement, iAttrs) {
 			$scope.folded = true;
 			function toggleFolded(){
