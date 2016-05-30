@@ -10,10 +10,12 @@ import eptTestComponent from "./ept-test-component/ept-test-component.js";
 import eptTestComponentGroup from "./ept-test-component-group/ept-test-component-group.js";
 import eptTestHtml from "./ept-test-html/ept-test-html.js";
 import eptToolBar from "./ept-tool-bar/ept-tool-bar.js";
-
+import utilDirectives from "./util-directives/util.directives.js";
 import "./common.less";
 export default angular.module("ept.common.directives", [eptActionGroup, 
 	eptBox, eptCategory, eptGroup, eptQuestion, 
 	eptQuestionGroup, eptTestComponent, 
 	eptTestComponentGroup, eptTestHtml, 
-	eptToolBar]).name;
+	eptToolBar,utilDirectives])
+
+.name;

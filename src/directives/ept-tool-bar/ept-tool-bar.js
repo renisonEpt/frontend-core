@@ -8,7 +8,7 @@ import "./ept-tool-bar.less";
 			text
 			onAction: function
 		}
-	@context: Any, argument to onAction function
+	@context: Any, argument to onAction function in each action object
 	@cssClass: string optional, additional css to be added on this directive
 */
 export default angular.module("ept.common.directives.eptToolbar",[]).directive('eptToolbar', [function () {

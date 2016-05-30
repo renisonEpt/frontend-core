@@ -9,14 +9,15 @@ import eptTestComponent from "../ept-test-component/ept-test-component.js";
 	//angular expressions to be passed in, will be given the Component obj
 	@onComponentCreated(Component) 
 	@onComponentDeleted(Component)
-	@onComponentModified(Component)
+	@onComonentChanged(Component)
 */
 export default angular.module("ept.common.directives.eptTestComponentGroup",[eptTestComponent]).directive('eptTestComponentGroup', [function() {
 	//see angular expression, the scope '&' symbol for details
 	function makeComponentCallback(angularExpression) {
-		return function(component) {
+		return function(component,oldComponent) {
 			if (angularExpression) angularExpression({
-				component: component
+				component: component,
+				oldComponent: oldComponent
 			});
 		}
 	}
@@ -85,7 +86,7 @@ export default angular.module("ept.common.directives.eptTestComponentGroup",[ept
 			components: '=',
 			onComponentCreated: "&",
 			onComponentDeleted: "&",
-			onComponentModified: "&"
+			onComponentChanged: "&"
 		},
 		controller: function($scope, $element, $attrs) {
 		},
@@ -94,15 +95,21 @@ export default angular.module("ept.common.directives.eptTestComponentGroup",[ept
 				makeComponentCallback($scope.onComponentCreated);
 			$scope.onComponentDeletedCallback =
 				makeComponentCallback($scope.onComponentDeleted);
-			$scope.onComponentModifiedCallback =
-				makeComponentCallback($scope.onComponentModified);
+			$scope.onComponentChangedCallback =
+				makeComponentCallback($scope.onComponentChanged);
 
 			// intended to be called BEFORE component created
 			function onComponentCreate(index,type){
 				var newComponent = makeNewComponent(type);
+				newComponent.ordering = index; //set ordering
 				//Component created
 				$scope.onComponentCreatedCallback(newComponent);
-				$scope.components.splice(index+1,0,newComponent);
+				//insert component at that index
+				$scope.components.splice(index,0,newComponent);
+				// make sure that `ordering` property is preserved
+				for(var i=index+1;i<$scope.components.length;i++){
+					$scope.components[i].ordering++;
+				}
 			}
 
 			// intended to be called BEFORE component deleted
@@ -142,7 +149,7 @@ export default angular.module("ept.common.directives.eptTestComponentGroup",[ept
 				iconClass:"fa fa-file-o",
 				text:"Paragraph",
 				onAction:function(context){
-					onComponentCreate(context,COMP_HTML);
+					onComponentCreate(context,ComponentType.COMP_HTML);
 				}
 			}];
 

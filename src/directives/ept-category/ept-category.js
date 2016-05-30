@@ -49,15 +49,17 @@ export default angular.module("ept.common.directives.ept-category",[xeditable,ep
 			};
 
 			//default actions
-			$scope.categoryActions = [{
-				iconClass: "fa fa-trash",
-				onAction: onDeleteCallback
-			}];
+			var getDefaultActions = function(){
+				return [{
+					iconClass: "fa fa-trash",
+					onAction: onDeleteCallback
+				}];
+			};
 			// watch for any change in actions, update as neccessary
 			$scope.$watch("actions", function(newval) {
 				if (typeof newval !== "undefined" &&
 					newval.length > 0) {
-					$scope.categoryActions.concat(newval);
+					$scope.categoryActions = getDefaultActions().concat(newval);
 
 				}
 			}, true);

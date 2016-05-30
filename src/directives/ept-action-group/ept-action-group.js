@@ -20,11 +20,16 @@ export default angular.module("ept.common.directives.eptActionGroup",[])
 		restrict: 'E',
 		scope: {
 			actions:"=",
-			cssClass:"="
+			cssClass:"=",
+			context:"="
 		},
 		controller: function($scope, $element, $attrs) {
 		},
 		link: function postLink($scope, iElement, iAttrs) {
+			$scope.performAction = function(action,$event){
+				$event.stopPropagation();
+				action.onAction($scope.context);
+			};
 		}
 	};
 }]).name;
