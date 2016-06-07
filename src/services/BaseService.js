@@ -1,9 +1,9 @@
 import angular from 'angular';
 
-// BaseService.$inject = [""]
+// BaseService.$inject = ['$http','$cookies'];
 class BaseService {
   constructor($http,$cookies) {
-    this.BASE_URL  = "http://localhost:8080";
+    this.BASE_URL  = "http://localhost:8080/api";
     this.$http = $http;
     this.$cookies = $cookies;
   }
@@ -45,5 +45,5 @@ class BaseService {
 }
 
 export default angular.module('ept.common.BaseService', [])
-  .service('BaseService', BaseService)
+  .service('BaseService', ['$http','$cookies',BaseService])
   .name;

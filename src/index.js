@@ -7,4 +7,7 @@ import './lib/xeditable/xeditable.css';
 import angular from 'angular';
 import directives from "./directives";
 import services from "./services";
-export default angular.module('ept.common', [directives,services]).name;
+import exceptions from './exceptions';
+export default angular.module('ept.common', [directives,services,exceptions])
+
+.name;

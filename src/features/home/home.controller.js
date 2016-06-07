@@ -1,6 +1,5 @@
 export default class HomeController {
-  constructor(randomNames,$filter) {
-    this.random = randomNames;
+  constructor($filter) {
     this.name = 'World';
     this.user = {
         status: 2
@@ -20,7 +19,6 @@ export default class HomeController {
   }
 
   randomName() {
-    this.name = this.random.getName();
   }
 
   showStatus() {
@@ -29,4 +27,4 @@ export default class HomeController {
   }
 }
 
-HomeController.$inject = ['randomNames','$filter'];
+HomeController.$inject = ['$filter'];
