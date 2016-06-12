@@ -1,7 +1,6 @@
 import angular from "angular";
 import ComponentType from "../../constants/component-type"
 import "./ept-test-component.less";
-import angularMaterialize from 'angular-materialize';
 /*
 	Union between `ept-question` and `ept-test-html`
 	interface component{
@@ -13,7 +12,7 @@ import angularMaterialize from 'angular-materialize';
 
 */
 
-export default angular.module("ept.common.directives.'eptTestComponent'",[angularMaterialize]).directive('eptTestComponent', [function () {
+export default angular.module("ept.common.directives.'eptTestComponent'",[]).directive('eptTestComponent', [function () {
 	return {
 		priority: 0,
 		template: require('./ept-test-component.html'),

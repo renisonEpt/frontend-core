@@ -1,6 +1,7 @@
 export default class HomeController {
-  constructor($filter) {
+  constructor($filter,BaseModalService) {
     this.name = 'World';
+    this.BaseModalService = BaseModalService;
     this.user = {
         status: 2
       }; 
@@ -15,16 +16,23 @@ export default class HomeController {
   }
 
   changeName() {
-    this.name = 'angular-tips';
+    console.log(this.BaseModalService);
+        this.BaseModalService.confirm({
+          modalTitle:'Double check...',
+          modalBody:'Please confirm that you have finished all questions'
+        }).then(function(result){
+          console.log(result);
+        });
   }
 
   randomName() {
   }
 
   showStatus() {
-      var selected = this.$filter('filter')(this.statuses, {value: this.user.status});
-      return (this.user.status && selected.length) ? selected[0].text : 'Not set';
+    
   }
+
+
 }
 
-HomeController.$inject = ['$filter'];
+HomeController.$inject = ['$filter','BaseModalService'];

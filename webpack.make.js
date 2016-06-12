@@ -199,7 +199,9 @@ module.exports = function makeWebpackConfig(options) {
       disable: !BUILD || TEST
     }),
     new webpack.ProvidePlugin({
-      'window.jQuery': 'jquery'
+      $: "jquery",
+      jQuery: "jquery",
+      "window.jQuery": "jquery"
     })
     
     // for support bower only

@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
-import './lib/xeditable/xeditable.css'
+require('bootstrap/dist/js/bootstrap.js');
+import './lib/xeditable/xeditable.css';
 import angular from 'angular';
 import uirouter from 'angular-ui-router'; // by  default importing angular-ui-router would not 
 // return an object, but would rather return the name of the module 'ui.router'
