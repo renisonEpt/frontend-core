@@ -1,7 +1,8 @@
 export default class HomeController {
-  constructor($filter,BaseModalService) {
+  constructor($filter,BaseModalService,BaseToastService) {
     this.name = 'World';
     this.BaseModalService = BaseModalService;
+    this.BaseToastService = BaseToastService;
     this.user = {
         status: 2
       }; 
@@ -19,13 +20,16 @@ export default class HomeController {
     console.log(this.BaseModalService);
         this.BaseModalService.confirm({
           modalTitle:'Double check...',
-          modalBody:'Please confirm that you have finished all questions'
+          modalBody:'Please confirm that you have finished all questions',
+
         }).then(function(result){
           console.log(result);
         });
   }
 
   randomName() {
+    // this.BaseModalService.errorAlert('"hello there!"');
+    this.BaseToastService.error('danger');
   }
 
   showStatus() {
@@ -35,4 +39,4 @@ export default class HomeController {
 
 }
 
-HomeController.$inject = ['$filter','BaseModalService'];
+HomeController.$inject = ['$filter','BaseModalService','BaseToastService'];

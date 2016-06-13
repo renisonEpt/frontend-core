@@ -1,13 +1,14 @@
 import angular from 'angular';
 import 'angular-modal-service';
-
+import 'angular-sanitize';
 /*
 	for documentation, see: https://github.com/dwmkerr/angular-modal-service
 */
 
 var angularModalService = 'angularModalService'; // name of module
-export default angular.module('ept.common.BaseModalService',[angularModalService])
-.service('BaseModalService',['ModalService',function(ModalService){
+export default angular.module('ept.common.BaseModalService',['ngSanitize',angularModalService])
+.service('BaseModalService',['ModalService','$sanitize',function(ModalService,$sanitize){
+	var BaseModalService = this;
 	/*
 		example inputs:{
 			modalTitle:'hello',
@@ -27,7 +28,7 @@ export default angular.module('ept.common.BaseModalService',[angularModalService
 				$scope.confirmText = confirmText;
 				$scope.cancelText = cancelText;
 			}];
-	this.confirm = function(options){
+	BaseModalService.confirm = function(options){
 		var defaultInputs = {
 			confirmText:'ok',
 			cancelText: 'cancel',
@@ -47,10 +48,23 @@ export default angular.module('ept.common.BaseModalService',[angularModalService
 			return modal.close;
 		});
 	};
-	// this.alert = function(inputs){
-	// 	return ModalService.showModal({
-	// 		template: require('../partials/modals/alert.html')
-	// 	});
-	// };
+	// for now the same thing as confirm, except title is different
+	BaseModalService.alert = function(inputs){
+		var defaultInputs = {
+			modalTitle:'A Message'
+		};
+
+		return BaseModalService.confirm(angular.merge(defaultInputs,inputs)); 
+	};
+	// accept plain text, OR html to be displayed
+	// note that this is dangers
+	BaseModalService.errorAlert = function(message){
+		var defaultInputs = {
+			modalTitle:'A Message',
+			modalBody:$sanitize(message)
+		};
+		return BaseModalService.confirm(defaultInputs); 
+	};
+	
 }])
 .name;
