@@ -1,6 +1,6 @@
 import angular from 'angular';
 import 'angular-modal-service';
-import 'angular-sanitize';
+require('textangular/dist/textAngular-sanitize');
 /*
 	for documentation, see: https://github.com/dwmkerr/angular-modal-service
 */
@@ -42,7 +42,6 @@ export default angular.module('ept.common.BaseModalService',['ngSanitize',angula
 			controller: confirmController,
 			inputs: inputs
 		}).then(function(modal){
-			console.log(modal);
 			modal.element.modal(); //display
 			 // return a promise that resolves the result (true/false)
 			return modal.close;

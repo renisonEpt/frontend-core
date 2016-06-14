@@ -30,13 +30,13 @@ export default angular.module('ept.common.BaseToastService',[angularToastr])
 		var BaseToastService = this;
 		//default setting
 		toastrConfig.timeOut = '3000';
-
-		BaseToastService.error = function(message,title){
-			toastr['error'](message,title || 'Oops');
+		// the setting object looks the same like the `options` above
+		BaseToastService.error = function(message,title,setting){
+			toastr['error'](message,title || 'Oops',setting);
 		};
 
-		BaseToastService.warn = function(message,title){
-			toastr['warning'](message,title || 'Warning');
+		BaseToastService.warn = function(message,title,setting){
+			toastr['warning'](message,title || 'Warning',setting);
 		};
 	}])
 .name;

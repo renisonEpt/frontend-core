@@ -3,7 +3,7 @@ import angular from 'angular';
 // BaseService.$inject = ['$http','$cookies'];
 class BaseService {
   constructor($http,$cookies) {
-    this.BASE_URL  = "http://localhost:8080/api";
+    this.BASE_URL  = "http://localhost:8080";
     this.$http = $http;
     this.$cookies = $cookies;
   }
