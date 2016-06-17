@@ -1,6 +1,6 @@
 // this is the main entry point for modules requiring core module
-import 'bootstrap/dist/css/bootstrap.css';
-require('bootstrap/dist/js/bootstrap.js');
+import 'bootstrap/dist/css/bootstrap.min.css';
+require('bootstrap/dist/js/bootstrap.min.js');
 import './lib/xeditable/xeditable.css';
 import angular from 'angular';
 import directives from "./directives";
