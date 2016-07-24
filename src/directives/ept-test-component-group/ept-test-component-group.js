@@ -133,13 +133,15 @@ export default angular.module("ept.common.directives.eptTestComponentGroup",[ept
 				onAction: function(context) {
 					onComponentCreate(context,QuestionType.TRUE_FALSE);
 				}
-			}, {
-				iconClass: "fa fa-pencil",
-				text: "Free Text",
-				onAction: function(context) {
-					onComponentCreate(context,QuestionType.FREE_TEXT);
-				}
-			}, {
+			}, 
+			// {
+			// 	iconClass: "fa fa-pencil",
+			// 	text: "Free Text",
+			// 	onAction: function(context) {
+			// 		onComponentCreate(context,QuestionType.FREE_TEXT);
+			// 	}
+			// }, 
+			{
 				iconClass: "fa fa-square-o",
 				text: "Short Answer",
 				onAction: function(context) {

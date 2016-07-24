@@ -33,7 +33,8 @@ export default angular.module("ept.common.directives.ept-category",[xeditable,ep
 			$scope.$watch('category',function(newval,oldval){
 				if(!angular.equals(newval,oldval)){
 					$scope.onChanged({
-						category: $scope.category
+						category: $scope.category,
+						oldCategory:oldval
 					});
 				}
 			},true);

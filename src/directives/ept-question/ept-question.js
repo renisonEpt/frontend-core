@@ -87,7 +87,7 @@ export default angular.module("ept.common.directives.eptQuestion",[]).directive(
 									isCorrect:false
 								});
 							});
-							question.answers[0].isCorrect = true; //at least one of them must
+							$scope.question.answers[0].isCorrect = true; //at least one of them must
 							// be correct, defaults to the first one
 						}
 					}
@@ -110,9 +110,13 @@ export default angular.module("ept.common.directives.eptQuestion",[]).directive(
 					$scope.newAnswer = function() {
 						var defaultAnswer = {
 							content: "new answer",
-							isCorrect: false
+							isCorrect: $scope.question.componentType == QuestionType.SHORT_ANSWER 
+							// if it is short answer, then true by default
 						};
-						question.answers.push(defaultAnswer);
+						$scope.question.answers.push(defaultAnswer);
+					};
+					$scope.deleteAnswer = function(index){
+						$scope.question.answers.splice(index,1);
 					};
 					// called when the correct answer gets changed
 					// only for multple choice and true false for now

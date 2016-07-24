@@ -63,6 +63,24 @@
 			}
 		}
 	}
+	.multiple-choice,.true-false,.short-answer{
+		.answer {
+			.admin{
+				.delete-answer{
+					margin-left: 10px;
+					display:none;
+					&:hover{
+						cursor:pointer;
+					}
+				}
+				&:hover{
+					.delete-answer{
+						display:inline-block;
+					}
+				}
+			}
+		}
+	}
 	.ept-group{
 		.ept-item.add-more{
 			color:@actionColor;
