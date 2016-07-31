@@ -4,7 +4,7 @@
 		<div ng-switch-when="MULTIPLE_CHOICE" class="multiple-choice">
 			<ept-group>
 				<ept-item ng-repeat="answer in question.answers track by $index" class="answer">
-					<div ng-if="!isAdmin">
+					<div ng-if="!isAdmin" ng-class="{'correct-answer':answer.isCorrect && highlightCorrect}">
 						<input type="radio" ng-value="answer.content" ng-model="question.response[0].text" ng-change="onResChangedCallback()">
 						{{answer.content}}
 					</div>
@@ -24,7 +24,7 @@
 		<div ng-switch-when="TRUE_FALSE" class="true-false">
 			<ept-group>
 				<ept-item ng-repeat="answer in question.answers track by $index" class="answer">
-					<div ng-if="!isAdmin">
+					<div ng-if="!isAdmin" ng-class="{'correct-answer':answer.isCorrect && highlightCorrect}">
 						<input type="radio" ng-value="answer.content" ng-model="question.response[0].text" ng-change="onResChangedCallback()">
 						{{answer.content}}
 					</div>
@@ -41,6 +41,10 @@
 			<ept-group>
 				<ept-item ng-if="!isAdmin" class="answer">
 					<input type="text" class="ept-blank-space" ng-model="question.response[0].text" ng-change="onResChangedCallback()">
+					<div ng-if="highlightCorrect" >
+						Correct answer(s):
+						<p ng-repeat="answer in question.answers" class="correct-answer">{{answer.content}}</p>
+					</div>
 				</ept-item>
 				<ept-item class="admin" ng-if="isAdmin" ng-repeat="answer in question.answers track by $index">
 					<input type="text" class="ept-blank-space" ng-model="answer.content">

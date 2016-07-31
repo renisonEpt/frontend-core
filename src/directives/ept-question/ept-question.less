@@ -43,7 +43,36 @@
 	}
 }
 
-
+.ept-question{
+	.multiple-choice,.true-false,.short-answer{
+		.answer {
+			.correct-answer{
+				background-color: rgba(50, 138, 70, 0.6);
+			}
+			.admin{
+				.delete-answer{
+					margin-left: 10px;
+					display:none;
+					&:hover{
+						cursor:pointer;
+					}
+				}
+				&:hover{
+					.delete-answer{
+						display:inline-block;
+					}
+				}
+			}
+		}
+	}
+	.short-answer{
+		.answer .correct-answer{
+			display:inline-block;
+			margin:0 10px;
+			background-color: inherit;
+		}
+	}
+}
 .ept-question.ept-question-make{
 	.actions{
 		display: none;
@@ -58,24 +87,6 @@
 					cursor: pointer;
 					&:hover{
 						color:darken(@actionColor, 10%);
-					}
-				}
-			}
-		}
-	}
-	.multiple-choice,.true-false,.short-answer{
-		.answer {
-			.admin{
-				.delete-answer{
-					margin-left: 10px;
-					display:none;
-					&:hover{
-						cursor:pointer;
-					}
-				}
-				&:hover{
-					.delete-answer{
-						display:inline-block;
 					}
 				}
 			}

@@ -6,9 +6,9 @@ export default angular.module("ept.common.directives.eptGroup",[eptItem]).direct
 		template: require('./ept-group.html'),
 		transclude: true,
 		restrict: 'E',
-		scope: {},
+		scope: {
+		},
 		controller: function($scope, $element, $attrs) {
-
 		},
 		link: function postLink(scope, iElement, iAttrs) {
 

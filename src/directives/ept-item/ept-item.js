@@ -7,7 +7,6 @@ export default angular.module("ept.common.directives.eptItem",[]).directive('ept
 		restrict: 'E',
 		require:'^eptGroup', //needs eptGroup
 		scope: {
-			cssClass:"=class" //optional css class
 		},
 		controller: function($scope, $element, $attrs) {},
 		link: function postLink(scope, iElement, iAttrs) {

@@ -18,7 +18,7 @@ import _ from "lodash";
 	onQuestionChanged: optional function callback with argument `question`
 	onQuestionDeleted: optional function
 	questionNum: required number indicating which question it is on a test
-
+	highlightCorrect: if the correct answer is attached, we can highlight it 
 	answer{
 		id: num
 
@@ -48,7 +48,8 @@ export default angular.module("ept.common.directives.eptQuestion",[]).directive(
 				"onQuestionChanged":'&',
 				"questionNum": '=',
 				"isAdmin": '=',
-				"onQuestionDeleted": '&'
+				"onQuestionDeleted": '&',
+				"highlightCorrect":'='
 			},
 			controller: function($scope, $element, $attrs) {
 				var question = $scope.question; //for convenience 

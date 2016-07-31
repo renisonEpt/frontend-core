@@ -1,0 +1,71 @@
+@import '../utils.less';
+
+.ept-namecard{
+    .boxShadow();
+    .namecard-marker{
+        padding:20px;
+        text-align: center;
+    }
+    .profile{
+        @titleSize: 22px;
+
+        @titleColor: black;
+        @memoSize: 16px;
+        @memoColor: lighten(@titleColor,20%);
+        .header{
+            @height:40px;
+            width: 100%;
+            display: block;
+            padding: 5px;
+            height:@height;
+            line-height: (@height*0.8);
+            .title{
+                float:left;
+                margin:0;
+                display:inline-block;
+                font-size: @titleSize;
+                color:@titleColor;
+            }
+            .memo{
+                float: right;
+                font-size: @memoSize;
+                color:@memoColor;
+                display:inline-block;
+            }
+        }
+        .detail{
+            padding:10px;
+        }
+    }
+}
+
+.avatar{
+    @avatarSize:110px;
+    @defaultBg:#ddd;
+    @defaultTxt:#fff;
+    @defaultFontSize: 48px;
+    height: @avatarSize;
+    width: @avatarSize;
+    background-color: @defaultBg;
+    color:@defaultTxt;
+    border-radius: 50%;
+    font-size:@defaultFontSize;
+    text-align: center;
+    line-height: @avatarSize;
+    margin:0 auto;
+}
+
+.icon-list{
+    @fontSize: 1em;
+    margin:0;
+    padding:0;
+    list-style: none;
+    .item{
+        .icon{
+            font-size: (1.2*@fontSize);
+
+        }
+        font-size: @fontSize;
+    }
+}
+

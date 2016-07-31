@@ -24,7 +24,8 @@ export default angular.module("ept.common.directives.'eptTestComponent'",[]).dir
 			onResponseChanged:'&', //for question-only, see ept-question
 			componentNum:'=', //required if question
 			isAdmin:'=', //whether components should be editable
-			isLoading:'&' // one way binding 
+			isLoading:'&', // one way binding 
+			highlightCorrect:'=' // see ept-question
 		},
 		controller: function($scope, $element, $attrs) {
 

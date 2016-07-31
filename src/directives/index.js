@@ -2,6 +2,7 @@
 import angular from "angular";
 import eptActionGroup from "./ept-action-group/ept-action-group.js";
 import eptBox from "./ept-box/ept-box.js";
+import eptNamecard from "./ept-namecard/ept-namecard.js";
 import eptCategory from "./ept-category/ept-category.js";
 import eptGroup from "./ept-group/ept-group.js";
 import eptQuestion from "./ept-question/ept-question.js";
@@ -17,6 +18,7 @@ export default angular.module("ept.common.directives", [eptActionGroup,
 	eptBox, eptCategory, eptGroup, eptQuestion, 
 	eptQuestionGroup, eptTestComponent, 
 	eptTestComponentGroup, eptTestHtml, 
-	eptToolBar,eptLoadingBar,utilDirectives])
+	eptToolBar,eptLoadingBar,utilDirectives,
+    eptNamecard])
 
 .name;
