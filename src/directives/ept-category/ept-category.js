@@ -53,7 +53,8 @@ export default angular.module("ept.common.directives.ept-category",[xeditable,ep
 			var getDefaultActions = function(){
 				return [{
 					iconClass: "fa fa-trash",
-					onAction: onDeleteCallback
+					onAction: onDeleteCallback,
+					tooltip:'delete'
 				}];
 			};
 			// watch for any change in actions, update as neccessary

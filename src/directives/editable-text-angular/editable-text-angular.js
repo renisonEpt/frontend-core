@@ -15,7 +15,7 @@ export default angular.module("ept.common.directives.editableTextAngular",[textA
 			      ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p'],
 			      ['bold', 'italics', 'underline', 'ul', 'ol', 'redo', 'undo', 'clear'],
 			      ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'],
-			      []
+                  ['insertImage']
 			      // ['html', 'insertImage','insertLink', 'insertVideo', 'wordcount', 'charcount']
 			  ];
             return taOptions; // whatever you return will be the taOptions
@@ -49,6 +49,9 @@ export default angular.module("ept.common.directives.editableTextAngular",[textA
 					});
 				}
 			};
+            if(!$scope.content){
+                $scope.content = 'Enter description by double clicking';
+            }
 		},
 		link: function postLink(scope, elem, iAttrs) {
 

@@ -34,7 +34,8 @@ export default angular.module("ept.common.directives.eptQuestion",[]).directive(
 			"iconClass": "fa fa-floppy-o saved"
 		};
 		var DELETE = {
-			"iconClass": "fa fa-trash"
+			"iconClass": "fa fa-trash",
+			"tooltip": "delete"
 		};
 
 		return {

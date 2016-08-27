@@ -11,7 +11,7 @@
 					<div ng-if="isAdmin" class="admin">
 						<input type="radio" ng-checked="answer.isCorrect" ng-click="onCorrectAnswerChanged($index)">
 						<span editable-text="answer.content">{{answer.content || "empty"}}</span>
-						<i class="fa fa-trash delete-answer" ng-click="deleteAnswer($index)"></i>
+						<i class="fa fa-trash delete-answer" title="delete" ng-click="deleteAnswer($index)"></i>
 					</div>
 				</ept-item>
 				<ept-item ng-if="isAdmin" class="'add-more'" >
@@ -31,7 +31,7 @@
 					<div ng-if="isAdmin" class="admin">
 						<input type="radio" ng-checked="answer.isCorrect" ng-click="onCorrectAnswerChanged($index)">
 						{{answer.content}} 
-						<i class="fa fa-trash delete-answer" ng-click="deleteAnswer($index)"></i>
+						<i class="fa fa-trash delete-answer" title="delete" ng-click="deleteAnswer($index)"></i>
 					</div>
 				</ept-item>
 			</ept-group>
@@ -48,7 +48,7 @@
 				</ept-item>
 				<ept-item class="admin" ng-if="isAdmin" ng-repeat="answer in question.answers track by $index">
 					<input type="text" class="ept-blank-space" ng-model="answer.content">
-					<i class="fa fa-trash delete-answer" ng-click="deleteAnswer($index)"></i>
+					<i class="fa fa-trash delete-answer" title="delete" ng-click="deleteAnswer($index)"></i>
 				</ept-item>
 				<ept-item ng-if="isAdmin" class="'add-more'" ng-click="newAnswer()">
 					<button class="btn btn-icon btn-sm"> <i class="fa fa-plus"></i> ADD</button>
