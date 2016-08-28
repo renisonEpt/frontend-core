@@ -51,3 +51,8 @@ Lessons learnt:
 Random:
    ✔ In typescript, cannot import angular1 module @done (16-03-12 12:53)
    SOlution: need d.ts file as mentioned in https://github.com/Microsoft/TypeScript/issues/3019
+
+
+
+TODO
+ ✔ Loading bar, add a displayType, when = cover, covers parent element (pos absolute and 100% width height), loading state depends on param given @done (16-08-28 02:33)
