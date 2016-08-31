@@ -56,3 +56,7 @@ Random:
 
 TODO
  ✔ Loading bar, add a displayType, when = cover, covers parent element (pos absolute and 100% width height), loading state depends on param given @done (16-08-28 02:33)
+
+ ✔ delete video @done (16-08-30 10:04)
+
+ 

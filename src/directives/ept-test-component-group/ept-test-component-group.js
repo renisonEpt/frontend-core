@@ -73,8 +73,13 @@ export default angular.module("ept.common.directives.eptTestComponentGroup",[ept
 					content:"<h1>You can edit me! in WYSIWYG style!</h1>",
 					componentType:componentType
 				};
+			case ComponentType.COMP_VIDEO:
+				return{
+					content:"",
+					componentType:componentType
+				};
 			default:
-				throw "cannot make unsupported question type " + type;
+				throw "cannot make unsupported question type " + componentType;
 		}
 	}
 
@@ -153,8 +158,13 @@ export default angular.module("ept.common.directives.eptTestComponentGroup",[ept
 				onAction:function(context){
 					onComponentCreate(context,ComponentType.COMP_HTML);
 				}
+			},{
+				iconClass:"fa fa-youtube-play",
+				text:"Video",
+				onAction:function(context){
+					onComponentCreate(context,ComponentType.COMP_VIDEO);
+				}
 			}];
-
 		}
 	};
 }]).name;

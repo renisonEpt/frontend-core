@@ -12,7 +12,10 @@ export default angular.module('ept.common.directives.eptLoadingBar',[]).directiv
 			isLoading:'='
 		},
 		controller: function($scope, $element, $attrs) {
-			$element.parent().css({'position':'relative'});
+			$scope.$watch('displayType',function(newval){
+				if($scope.displayType ==='cover') $element.parent().css({'position':'relative'});
+			});
+			
 		},
 		link: function postLink(scope, iElement, iAttrs) {
 

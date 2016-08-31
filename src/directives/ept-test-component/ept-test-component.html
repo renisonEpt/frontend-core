@@ -1,5 +1,5 @@
 <div class="ept-test-component">
-	<ept-question ng-if="!isHtml()" 
+	<ept-question ng-if="isQuestion()" 
 	question="component" 
 	question-num="componentNum" 
 	on-response-changed="onResponseChangedCallback(question)"
@@ -10,4 +10,5 @@
 
 	<ept-test-html ng-if="isHtml()" content="component.content"
 		editable="isAdmin" on-content-deleted="onComponentDeletedCallback()"></ept-test-html>
+	<ept-test-video ng-if="isVideo()" uploadable="isAdmin" content="component.content" on-content-deleted="onComponentDeletedCallback()"></ept-test-video>
 </div>

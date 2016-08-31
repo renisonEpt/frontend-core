@@ -12,7 +12,8 @@ import "./ept-test-component.less";
 
 */
 
-export default angular.module("ept.common.directives.'eptTestComponent'",[]).directive('eptTestComponent', [function () {
+export default angular.module("ept.common.directives.'eptTestComponent'",[])
+.directive('eptTestComponent', ['$rootScope',function ($rootScope) {
 	return {
 		priority: 0,
 		template: require('./ept-test-component.html'),
@@ -31,10 +32,20 @@ export default angular.module("ept.common.directives.'eptTestComponent'",[]).dir
 
 		},
 		link: function postLink($scope, iElement, iAttrs) {
+			$scope.$on('fileChanged',function($event,data){
+				$event.stopPropagation();
+				data.component = $scope.component;
+				$rootScope.$broadcast('videoFileChanged',data);
+			});
 			$scope.isHtml = function(){
 				return $scope.component.componentType === ComponentType.COMP_HTML;
 			};
-
+			$scope.isVideo = function(){
+				return $scope.component.componentType === ComponentType.COMP_VIDEO;
+			};
+			$scope.isQuestion = function(){
+				return !($scope.isHtml() || $scope.isVideo());
+			};
 			$scope.onComponentDeletedCallback = function(){
 				if($scope.onComponentDeleted)$scope.onComponentDeleted({
 					component:$scope.component
