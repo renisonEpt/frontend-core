@@ -7,7 +7,7 @@
 <form class="upload-form" ng-show="uploadable">
     <fieldset>
       <br>Video:
-      <input type="file" ngf-select ng-model="videoFile" name="file" ngf-max-size="200MB" required
+      <input type="file" ngf-accept="'video/*'" ngf-select ng-model="videoFile" name="file" ngf-max-size="200MB" required
              ngf-model-invalid="errorFile">
       <i ng-show="myForm.file.$error.required">*required</i><br>
       <i ng-show="myForm.file.$error.maxSize">File too large 
