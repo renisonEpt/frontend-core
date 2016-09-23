@@ -31,7 +31,7 @@
 					<div ng-if="isAdmin" class="admin">
 						<input type="radio" ng-checked="answer.isCorrect" ng-click="onCorrectAnswerChanged($index)">
 						{{answer.content}} 
-						<i class="fa fa-trash delete-answer" title="delete" ng-click="deleteAnswer($index)"></i>
+						<!-- do not allow deletion for true_false-->
 					</div>
 				</ept-item>
 			</ept-group>
