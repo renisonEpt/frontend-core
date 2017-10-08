@@ -1,6 +1,6 @@
 {
   "name": "renison-ept-frontend-core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Core directives for renison EPT",
   "scripts": {
     "build": "webpack --config webpack.build.js --bail -p --define base_url='http://localhost:8080'",
