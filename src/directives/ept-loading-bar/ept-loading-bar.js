@@ -9,7 +9,8 @@ export default angular.module('ept.common.directives.eptLoadingBar',[]).directiv
 		scope: {
 			cssClass:'=class', //optional css class
 			displayType:'=',
-			isLoading:'='
+			isLoading:'=',
+			type:'='
 		},
 		controller: function($scope, $element, $attrs) {
 			$scope.$watch('displayType',function(newval){

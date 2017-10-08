@@ -29,7 +29,7 @@ export default angular.module('ept.common.BaseToastService',[angularToastr])
 	function(ModalService,$sanitize,toastr,toastrConfig){
 		var BaseToastService = this;
 		//default setting
-		toastrConfig.timeOut = '3000';
+		toastrConfig.timeOut = '12000';
 		// the setting object looks the same like the `options` above
 		BaseToastService.error = function(message,title,setting){
 			toastr['error'](message,title || 'Oops',setting);

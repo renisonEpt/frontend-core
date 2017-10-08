@@ -25,7 +25,7 @@ class BaseService {
       throw new Error('Invalid credential given, no username or password');
     }
     this.$cookies.put(BASIC_AUTH_KEY,JSON.stringify(credential),{
-      expires: new Date(Date.now() + 60*60*1000) // in 1 hour
+      expires: new Date(Date.now() + 4*60*60*1000) // in 4 hours
     });
     // also set in default
     this.$http.defaults.headers.common.Authorization = this.computeBasicAuthString(credential);

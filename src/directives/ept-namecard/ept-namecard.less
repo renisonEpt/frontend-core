@@ -2,16 +2,17 @@
 
 .ept-namecard{
     .boxShadow();
+    position:relative;
     .namecard-marker{
         padding:20px;
         text-align: center;
     }
     .profile{
-        @titleSize: 22px;
+        @titleSize: 3rem;
 
         @titleColor: black;
-        @memoSize: 16px;
-        @memoColor: lighten(@titleColor,20%);
+        @memoSize: 2rem;
+        @memoColor: lighten(@titleColor,70%);
         .header{
             @height:40px;
             width: 100%;
@@ -35,6 +36,28 @@
         }
         .detail{
             padding:10px;
+            ul.personal-info{
+                font-size: @memoSize + 0.2;
+                i.fa{
+                    color: lighten(@titleColor, 50%);
+                    margin-right: 5px;
+                }
+            }
+            label.finished-label{
+                margin-top: 10px;
+                position: relative;
+                top: 20px;
+                font-size: 2rem;
+            }
+        }
+        
+    }
+    .toolbar{
+        position:absolute;
+        bottom: 3px;
+        right: 3px;
+        .actions{
+            font-size: 2.5rem;
         }
     }
 }
